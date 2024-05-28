@@ -34,8 +34,6 @@ const PersonalRoom = () => {
   const { toast } = useToast();
   const meetingId = user?.id;
   const { call } = useGetCallById(meetingId!);
-  const meetingLink = `https://${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?personal=true`;
-
 
   const startRoom = async () => {
     if (!client || !user) return;
@@ -53,7 +51,7 @@ const PersonalRoom = () => {
     router.push(`/meeting/${meetingId}?personal=true`);
   };
 
-  
+  const meetingLink = `https://${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?personal=true`;
 
   return (
     <section className="flex size-full flex-col gap-10 text-white">
